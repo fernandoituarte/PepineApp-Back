@@ -59,8 +59,8 @@
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your_username/pepine-nest.git
-   cd pepine-nest
+   git clone https://github.com/fernandoituarte/PepineApp-Back.git
+   cd PepineApp-Back
    ```
 
 2. **Install the dependencies**
