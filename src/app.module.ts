@@ -22,7 +22,7 @@ import { UsersModule } from './users/users.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: process.env.NODE_ENV === 'development',
     }),
     AuthModule,
     OrdersModule,
@@ -35,4 +35,11 @@ import { UsersModule } from './users/users.module';
     UsersModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log(
+      'Synchronize is set to:',
+      process.env.NODE_ENV === 'development',
+    );
+  }
+}
