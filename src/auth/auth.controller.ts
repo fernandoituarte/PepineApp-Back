@@ -62,6 +62,7 @@ export class AuthController {
       sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
+      path: '/',
     });
     res.cookie('user', JSON.stringify({ role, id }), {
       httpOnly: false,
@@ -69,6 +70,7 @@ export class AuthController {
       sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
       maxAge: 23 * 60 * 60 * 1000,
+      path: '/',
     });
 
     return {
@@ -110,6 +112,7 @@ export class AuthController {
       sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
+      path: '/',
     });
     res.cookie('user', JSON.stringify({ role, id }), {
       httpOnly: false,
@@ -117,6 +120,7 @@ export class AuthController {
       sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
       maxAge: 23 * 60 * 60 * 1000,
+      path: '/',
     });
 
     return { status: 201, message: 'Login successful', user: { role, id } };
