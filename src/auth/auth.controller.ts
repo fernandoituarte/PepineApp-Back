@@ -54,9 +54,7 @@ export class AuthController {
 
     const isProduction =
       this.configService.get<string>('NODE_ENV') !== 'development';
-    const cookieDomain = isProduction
-      ? this.configService.get<string>('URL_FRONT')
-      : 'localhost';
+    const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
 
     res.cookie('authToken', token, {
       httpOnly: true,
@@ -103,9 +101,7 @@ export class AuthController {
 
     const isProduction =
       this.configService.get<string>('NODE_ENV') !== 'development';
-    const cookieDomain = isProduction
-      ? this.configService.get<string>('URL_FRONT')
-      : 'localhost';
+    const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
 
     res.cookie('authToken', token, {
       httpOnly: true,
