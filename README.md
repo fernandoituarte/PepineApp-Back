@@ -83,6 +83,7 @@
     DB_USERNAME=your_username
     HOST_NAME=http://localhost:3000/api
     URL_FRONT=http://localhost:3001
+    COOKIE_DOMAIN=localhost
     JWT_SECRET=your_jwt_secret
     SMTP_HOST=smtp.gmail.com
     SMTP_PORT=465
