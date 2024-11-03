@@ -16,7 +16,6 @@ export class SeedController {
    * @returns The result of the seeding operation (success message).
    */
   @Get()
-  @Auth(ValidRoles.admin)
   @ApiSeedResponse()
   executeSeed() {
     return this.seedService.runSeed();
