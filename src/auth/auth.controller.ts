@@ -53,7 +53,7 @@ export class AuthController {
     const { token, role, id } = await this.authService.create(createUserDto);
 
     const isProduction =
-      this.configService.get<string>('NODE_ENV') === 'production';
+      this.configService.get<string>('NODE_ENV') !== 'development';
     const cookieDomain = isProduction
       ? this.configService.get<string>('URL_FRONT')
       : 'localhost';
@@ -102,7 +102,7 @@ export class AuthController {
     const { token, role, id } = await this.authService.login(loginUserDto);
 
     const isProduction =
-      this.configService.get<string>('NODE_ENV') === 'production';
+      this.configService.get<string>('NODE_ENV') !== 'development';
     const cookieDomain = isProduction
       ? this.configService.get<string>('URL_FRONT')
       : 'localhost';
