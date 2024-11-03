@@ -19,11 +19,15 @@ import {
   ApiUpdatePasswordResponse,
 } from './decorators';
 import { ValidRoles } from './interfaces/valid-roles.interface';
+import { ConfigService } from '@nestjs/config';
 
 @ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly configService: ConfigService,
+  ) {}
 
   /**
    * Registers a new user, hashes the password, saves the user to the database,
@@ -48,17 +52,23 @@ export class AuthController {
   }> {
     const { token, role, id } = await this.authService.create(createUserDto);
 
+    const isProduction =
+      this.configService.get<string>('NODE_ENV') === 'production';
+    const cookieDomain = isProduction
+      ? this.configService.get<string>('URL_FRONT')
+      : 'localhost';
+
     res.cookie('authToken', token, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'lax',
-      domain: 'localhost',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
     });
     res.cookie('user', JSON.stringify({ role, id }), {
-      secure: false,
-      sameSite: 'lax',
-      domain: 'localhost',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
       maxAge: 23 * 60 * 60 * 1000,
     });
 
@@ -91,17 +101,23 @@ export class AuthController {
   }> {
     const { token, role, id } = await this.authService.login(loginUserDto);
 
+    const isProduction =
+      this.configService.get<string>('NODE_ENV') === 'production';
+    const cookieDomain = isProduction
+      ? this.configService.get<string>('URL_FRONT')
+      : 'localhost';
+
     res.cookie('authToken', token, {
       httpOnly: true,
-      secure: false,
-      sameSite: 'lax',
-      domain: 'localhost',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
     });
     res.cookie('user', JSON.stringify({ role, id }), {
-      secure: false,
-      sameSite: 'lax',
-      domain: 'localhost',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
       maxAge: 23 * 60 * 60 * 1000,
     });
 
