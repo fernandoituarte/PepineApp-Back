@@ -64,6 +64,7 @@ export class AuthController {
       maxAge: 24 * 60 * 60 * 1000,
     });
     res.cookie('user', JSON.stringify({ role, id }), {
+      httpOnly: false,
       secure: isProduction,
       sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
@@ -111,6 +112,7 @@ export class AuthController {
       maxAge: 24 * 60 * 60 * 1000,
     });
     res.cookie('user', JSON.stringify({ role, id }), {
+      httpOnly: false,
       secure: isProduction,
       sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
