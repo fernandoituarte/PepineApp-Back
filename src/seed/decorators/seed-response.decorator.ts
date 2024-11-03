@@ -9,10 +9,6 @@ import {
 export const ApiSeedResponse = () => {
   return applyDecorators(
     ApiOperation({ summary: 'Execute database seed operation' }),
-    ApiOperation({
-      summary: 'Create a new category',
-      description: 'Allows an admin to create a new category.',
-    }),
     ApiCookieAuth(),
     ApiResponse({
       status: 201,
