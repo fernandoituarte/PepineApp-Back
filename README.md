@@ -75,6 +75,7 @@
 
    ```env
     PORT=
+    NODE_ENV=development
     DB_PASSWORD=your_password
     DB_NAME=your_database_name
     DB_HOST=localhost
