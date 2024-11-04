@@ -49,20 +49,14 @@ export class AuthController {
     status: number;
     message: string;
     user: { role: string; id: string };
+    token: string;
   }> {
     const { token, role, id } = await this.authService.create(createUserDto);
 
     const isProduction =
       this.configService.get<string>('NODE_ENV') === 'production';
     const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
-    console.log({
-      httpOnly: true,
-      secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
-      domain: cookieDomain,
-      maxAge: 24 * 60 * 60 * 1000,
-      path: '/',
-    });
+
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,
@@ -84,6 +78,7 @@ export class AuthController {
       status: 201,
       message: 'The user has been successfully registered.',
       user: { role, id },
+      token,
     };
   }
 
@@ -106,20 +101,14 @@ export class AuthController {
     status: number;
     message: string;
     user: { role: string; id: string };
+    token: string;
   }> {
     const { token, role, id } = await this.authService.login(loginUserDto);
 
     const isProduction =
       this.configService.get<string>('NODE_ENV') === 'production';
     const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
-    console.log({
-      httpOnly: true,
-      secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
-      domain: cookieDomain,
-      maxAge: 24 * 60 * 60 * 1000,
-      path: '/',
-    });
+
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,
@@ -137,7 +126,12 @@ export class AuthController {
       path: '/',
     });
 
-    return { status: 201, message: 'Login successful', user: { role, id } };
+    return {
+      status: 201,
+      message: 'Login successful',
+      user: { role, id },
+      token,
+    };
   }
 
   /**
