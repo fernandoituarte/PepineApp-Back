@@ -55,11 +55,18 @@ export class AuthController {
     const isProduction =
       this.configService.get<string>('NODE_ENV') === 'production';
     const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
-
+    console.log({
+      httpOnly: false,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
+      maxAge: 24 * 60 * 60 * 1000,
+      path: '/',
+    });
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: 'lax',
+      sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
       path: '/',
@@ -67,9 +74,9 @@ export class AuthController {
     res.cookie('user', JSON.stringify({ role, id }), {
       httpOnly: false,
       secure: isProduction,
-      sameSite: 'lax',
+      sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
-      maxAge: 23 * 60 * 60 * 1000,
+      maxAge: 24 * 60 * 60 * 1000,
       path: '/',
     });
 
@@ -105,11 +112,18 @@ export class AuthController {
     const isProduction =
       this.configService.get<string>('NODE_ENV') === 'production';
     const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
-
+    console.log({
+      httpOnly: false,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
+      maxAge: 24 * 60 * 60 * 1000,
+      path: '/',
+    });
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: 'lax',
+      sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
       path: '/',
@@ -117,9 +131,9 @@ export class AuthController {
     res.cookie('user', JSON.stringify({ role, id }), {
       httpOnly: false,
       secure: isProduction,
-      sameSite: 'lax',
+      sameSite: isProduction ? 'none' : 'lax',
       domain: cookieDomain,
-      maxAge: 23 * 60 * 60 * 1000,
+      maxAge: 24 * 60 * 60 * 1000,
       path: '/',
     });
 
