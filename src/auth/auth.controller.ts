@@ -59,7 +59,7 @@ export class AuthController {
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+      sameSite: 'lax',
       domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
       path: '/',
@@ -67,7 +67,7 @@ export class AuthController {
     res.cookie('user', JSON.stringify({ role, id }), {
       httpOnly: false,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+      sameSite: 'lax',
       domain: cookieDomain,
       maxAge: 23 * 60 * 60 * 1000,
       path: '/',
@@ -109,7 +109,7 @@ export class AuthController {
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+      sameSite: 'lax',
       domain: cookieDomain,
       maxAge: 24 * 60 * 60 * 1000,
       path: '/',
@@ -117,7 +117,7 @@ export class AuthController {
     res.cookie('user', JSON.stringify({ role, id }), {
       httpOnly: false,
       secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
+      sameSite: 'lax',
       domain: cookieDomain,
       maxAge: 23 * 60 * 60 * 1000,
       path: '/',
