@@ -49,7 +49,6 @@ export class AuthController {
     status: number;
     message: string;
     user: { role: string; id: string };
-    token: string;
   }> {
     const { token, role, id } = await this.authService.create(createUserDto);
 
@@ -78,7 +77,6 @@ export class AuthController {
       status: 201,
       message: 'The user has been successfully registered.',
       user: { role, id },
-      token,
     };
   }
 
@@ -101,7 +99,6 @@ export class AuthController {
     status: number;
     message: string;
     user: { role: string; id: string };
-    token: string;
   }> {
     const { token, role, id } = await this.authService.login(loginUserDto);
 
@@ -130,7 +127,6 @@ export class AuthController {
       status: 201,
       message: 'Login successful',
       user: { role, id },
-      token,
     };
   }
 

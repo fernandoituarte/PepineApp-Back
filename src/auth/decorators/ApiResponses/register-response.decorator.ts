@@ -17,8 +17,6 @@ export const ApiRegisterResponse = () => {
           status: 201,
           description: 'The user has been successfully registered.',
           user: { role: 'user', id: 'c62e05b0-37ff-4e9e-8b56-e4b482a71234' },
-          token:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGVAZXhhbXBsZS5jb20iLCJyb2xlIjoiZXhhbXBsZSIsImlkIjoiYzYyZTA1YjAtMzdmZi00ZTllLThiNTYtZTRiNDgyYTcxMjM0IiwiaWF0IjoxNzMwNzI5NjA0LCJleHAiOjE3MzA4MTYwMDR9.PFunHE9KTCYpYXvjsoZFI31RlfaKxSBGmNWUCqc4yI0',
         },
       },
     }),
