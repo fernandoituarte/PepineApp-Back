@@ -32,7 +32,7 @@ export const ApiUpdateCategoryResponse = () => {
             createdAt: '2024-09-09T19:42:31.712Z',
             updatedAt: '2024-09-09T19:42:31.712Z',
             media: {
-              url: 'http://localhost:3000/api/media/f445d64c-e089-4814-8688-4263e0175073.jpg',
+              url: 'http://localhost:3000/media/f445d64c-e089-4814-8688-4263e0175073.jpg',
               id: 313,
               createdAt: '2024-10-15T17:59:16.629Z',
               updatedAt: '2024-10-15T17:59:16.836Z',

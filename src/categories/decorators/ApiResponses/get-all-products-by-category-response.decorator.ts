@@ -29,7 +29,7 @@ export const ApiGetAllProductsByCategoryResponse = () => {
             updatedAt: '2024-09-09T19:42:31.712Z',
             media: {
               id: 311,
-              url: 'http://localhost:3000/api/media/f445d64c-e089-4814-8688-4263e0175073.jpg',
+              url: 'http://localhost:3000/media/f445d64c-e089-4814-8688-4263e0175073.jpg',
               createdAt: '2024-10-15T16:40:23.249Z',
               updatedAt: '2024-10-15T16:40:23.371Z',
             },
@@ -67,7 +67,7 @@ export const ApiGetAllProductsByCategoryResponse = () => {
               media: [
                 {
                   id: 294,
-                  url: 'http://localhost:3000/api/media/fe4139f2-10fc-4bf3-af3f-12345d800d08.jpeg',
+                  url: 'http://localhost:3000/media/fe4139f2-10fc-4bf3-af3f-12345d800d08.jpeg',
                 },
               ],
               categories: [

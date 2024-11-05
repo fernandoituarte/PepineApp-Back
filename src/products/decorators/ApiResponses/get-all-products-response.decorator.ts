@@ -46,7 +46,7 @@ export const ApiGetAllProductsResponse = () => {
               media: [
                 {
                   id: 294,
-                  url: 'http://localhost:3000/api/media/fe4139f2-10fc-4bf3-af3f-12345d800d08.jpeg',
+                  url: 'http://localhost:3000/media/fe4139f2-10fc-4bf3-af3f-12345d800d08.jpeg',
                 },
               ],
               categories: [

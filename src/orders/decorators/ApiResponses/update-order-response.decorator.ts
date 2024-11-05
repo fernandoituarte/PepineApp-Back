@@ -47,7 +47,7 @@ export const ApiUpdateOrderResponse = () => {
                   price: 39.99,
                   stock: 8,
                   media:
-                    'http://localhost:3000/api/media/492c945a-7ada-48fc-a36f-e4e2503a0062.jpg',
+                    'http://localhost:3000/media/492c945a-7ada-48fc-a36f-e4e2503a0062.jpg',
                   category: [
                     {
                       value: "Plantes d'intérieur",

@@ -33,7 +33,7 @@ export class CreateCategoryDto {
 
   @ApiProperty({
     example:
-      'http://localhost:3000/api/media/f445d64c-e089-4814-8688-4263e0175073.jpg',
+      'http://localhost:3000/media/f445d64c-e089-4814-8688-4263e0175073.jpg',
     description: 'The url of the image',
     required: true,
   })

@@ -38,8 +38,8 @@ export const ApiCreateMediaResponse = () => {
         example: {
           message: 'Media created successfully.',
           secureUrls: [
-            'http://localhost:3000/api/media/1d75081c-0ce2-4063-af0e-cba474763e19.jpeg',
-            'http://localhost:3000/api/media/1d75081c-0ce2-4063-af0e-cba474763e19.jpeg',
+            'http://localhost:3000/media/1d75081c-0ce2-4063-af0e-cba474763e19.jpeg',
+            'http://localhost:3000/media/1d75081c-0ce2-4063-af0e-cba474763e19.jpeg',
           ],
           statusCode: 201,
         },

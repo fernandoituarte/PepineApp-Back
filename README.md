@@ -81,7 +81,7 @@
     DB_HOST=localhost
     DB_PORT=5432
     DB_USERNAME=your_username
-    HOST_NAME=http://localhost:3000/api
+    HOST_NAME=http://localhost:3000
     URL_FRONT=http://localhost:3001
     COOKIE_DOMAIN=localhost
     JWT_SECRET=your_jwt_secret
@@ -151,10 +151,10 @@ The application will be running at [http://localhost:3000](http://localhost:3000
 The API has interactive documentation via **Swagger**. Access it at:
 
 ```
-http://localhost:3000/api
+http://localhost:3000
 ```
 
-To populate the database with initial data, you can make a GET request to "/api/seed". This can be done directly in your browser or through a tool like Postman or Swagger.
+To populate the database with initial data, you can make a GET request to "/seed". This can be done directly in your browser or through a tool like Postman or Swagger.
 
 ---
 
