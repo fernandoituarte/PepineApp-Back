@@ -55,8 +55,11 @@ export class MediaController {
     @UploadedFiles()
     files: Array<Express.Multer.File>,
   ): { status: number; message: string; secureUrls: string[] } {
-    if (!files) {
-      throw new BadRequestException('Make sure that the file is an image');
+    if (!files || files.length === 0) {
+      console.log(files);
+      throw new BadRequestException(
+        'Please ensure the file is an image in one of the following formats: jpg, jpeg, png, gif, or webp.',
+      );
     }
 
     const secureUrls: string[] = files.map((file) => {

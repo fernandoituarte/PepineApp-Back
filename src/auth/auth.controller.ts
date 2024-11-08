@@ -55,14 +55,7 @@ export class AuthController {
     const isProduction =
       this.configService.get<string>('NODE_ENV') === 'production';
     const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
-    console.log({
-      httpOnly: false,
-      secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
-      domain: cookieDomain,
-      maxAge: 24 * 60 * 60 * 1000,
-      path: '/',
-    });
+
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,
@@ -112,14 +105,7 @@ export class AuthController {
     const isProduction =
       this.configService.get<string>('NODE_ENV') === 'production';
     const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
-    console.log({
-      httpOnly: false,
-      secure: isProduction,
-      sameSite: isProduction ? 'none' : 'lax',
-      domain: cookieDomain,
-      maxAge: 24 * 60 * 60 * 1000,
-      path: '/',
-    });
+
     res.cookie('authToken', token, {
       httpOnly: true,
       secure: isProduction,

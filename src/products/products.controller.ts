@@ -49,7 +49,6 @@ export class ProductsController {
     message: string;
     product: Product;
   }> {
-    console.log(user);
     const response = await this.productsService.create(createProductDto, user);
 
     return {

@@ -44,7 +44,6 @@ export class OrdersService {
 
       return orderResponse.id;
     } catch (error) {
-      console.log(error);
       this.handleExceptions(error);
     }
   }

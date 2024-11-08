@@ -35,11 +35,4 @@ import { UsersModule } from './users/users.module';
     UsersModule,
   ],
 })
-export class AppModule {
-  constructor() {
-    console.log(
-      'Synchronize is set to:',
-      process.env.NODE_ENV === 'development',
-    );
-  }
-}
+export class AppModule {}

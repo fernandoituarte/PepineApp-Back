@@ -126,7 +126,6 @@ export class UsersService {
 
       return userResponse;
     } catch (error) {
-      console.log(error);
       this.handleExceptions(error);
     }
   }
