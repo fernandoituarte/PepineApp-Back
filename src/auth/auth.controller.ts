@@ -139,8 +139,26 @@ export class AuthController {
     status: number;
     message: string;
   }> {
-    res.clearCookie('authToken');
-    res.clearCookie('user');
+    const isProduction =
+      this.configService.get<string>('NODE_ENV') === 'production';
+    const cookieDomain = this.configService.get<string>('COOKIE_DOMAIN');
+
+    res.cookie('authToken', '', {
+      expires: new Date(0),
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
+      path: '/',
+    });
+    res.cookie('user', '', {
+      expires: new Date(0),
+      httpOnly: false,
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
+      domain: cookieDomain,
+      path: '/',
+    });
 
     return {
       status: 200,
