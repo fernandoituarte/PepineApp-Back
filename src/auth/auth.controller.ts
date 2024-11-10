@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Param, Res } from '@nestjs/common';
+import { Controller, Post, Body, Param, Res, HttpCode } from '@nestjs/common';
 import { Response } from 'express';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
@@ -20,6 +20,7 @@ import {
 } from './decorators';
 import { ValidRoles } from './interfaces/valid-roles.interface';
 import { ConfigService } from '@nestjs/config';
+import { ApiLogoutResponse } from './decorators/ApiResponses/logout-response.decorator';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -127,6 +128,23 @@ export class AuthController {
       status: 201,
       message: 'Login successful',
       user: { role, id },
+    };
+  }
+
+  @Post('logout')
+  @ApiLogoutResponse()
+  @Auth(ValidRoles.admin, ValidRoles.user)
+  @HttpCode(200)
+  async logout(@Res({ passthrough: true }) res: Response): Promise<{
+    status: number;
+    message: string;
+  }> {
+    res.clearCookie('authToken');
+    res.clearCookie('user');
+
+    return {
+      status: 200,
+      message: 'Logout successful',
     };
   }
 

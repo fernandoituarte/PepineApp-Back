@@ -13,7 +13,6 @@ async function bootstrap() {
     credentials: true,
   });
   app.use(cookieParser());
-  app.setGlobalPrefix('');
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
