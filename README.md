@@ -23,7 +23,7 @@
 # 📚 Project: Pepine Nest
 
 ### Description
-**Pepine Nest** is a backend application developed in **NestJS** that provides a robust and scalable API for managing `specific functionality of your application`. This project includes JWT authentication, email handling, and straightforward integration with databases using TypeORM.
+**Pepine Nest** is a backend application developed in **NestJS** that provides a robust and scalable API for managing product listings, categories, user accounts and orders. This project includes JWT authentication, email handling, and straightforward integration with databases using TypeORM.
 
 ### Table of Contents
 1. [Features](#features)
